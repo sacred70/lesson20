@@ -52,13 +52,13 @@ def movie_dao():
     movie_dao = MovieDAO(db.session)
 
     movie_1 = Movie(id=1, title="Movie 1", description="Description 1",
-                    trailer="Trailer 1", year=2000, rating=7.0, genre_id=1,
+                    trailer="Trailer 1", year=2001, rating=7.0, genre_id=1,
                     director_id=1)
     movie_2 = Movie(id=2, title="Movie 2", description="Description 2",
-                    trailer="Trailer 2", year=2020, rating=10.0, genre_id=1,
+                    trailer="Trailer 2", year=2019, rating=10.0, genre_id=1,
                     director_id=1)
     movie_3 = Movie(id=3, title="Movie 3", description="Description 3",
-                    trailer="Trailer 3", year=2010, rating=8.0, genre_id=1,
+                    trailer="Trailer 3", year=2011, rating=9.0, genre_id=1,
                     director_id=1)
 
     movies = {1: movie_1, 2: movie_2, 3: movie_3}
