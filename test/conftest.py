@@ -3,6 +3,8 @@ from setup_db import db
 from unittest.mock import MagicMock
 from dao.model.director import Director
 from dao.director import DirectorDAO
+from dao.model.genre import Genre
+from dao.genre import GenreDAO
 
 
 @pytest.fixture
@@ -22,3 +24,23 @@ def director_dao():
     director_dao.delete = MagicMock()
 
     return director_dao
+
+
+@pytest.fixture
+def genre_dao():
+    genre_dao = GenreDAO(db.session)
+
+    genre_1 = Genre(id=1, name="Genre 1")
+    genre_2 = Genre(id=2, name="Genre 2")
+    genre_3 = Genre(id=3, name="Genre 3")
+
+    genres = {1: genre_1, 2: genre_2, 3: genre_3}
+
+    genre_dao.get_one = MagicMock(return_value=genre_1)
+    genre_dao.get_all = MagicMock(return_value=genres.values())
+    genre_dao.create = MagicMock(return_value=genre_1)
+    genre_dao.update = MagicMock()
+    genre_dao.delete = MagicMock()
+
+    return genre_dao
+
